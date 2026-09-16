@@ -1,11 +1,17 @@
-import { Container } from "@/components/layout/container";
-import { siteConfig } from "@/config/site";
+import { CeramicCoatingSpotlight } from "@/components/home/ceramic-coating-spotlight";
+import { Hero } from "@/components/home/hero";
+import { ServicesOverview } from "@/components/home/services-overview";
+import { ValueProposition } from "@/components/home/value-proposition";
+import { VisualProof } from "@/components/home/visual-proof";
 
 export default function HomePage() {
   return (
-    <Container className="flex min-h-svh flex-col items-center justify-center gap-2 text-center">
-      <h1 className="text-2xl font-semibold">{siteConfig.name}</h1>
-      <p className="text-sm text-neutral-500">Site under construction.</p>
-    </Container>
+    <>
+      <Hero />
+      <ValueProposition />
+      <ServicesOverview />
+      <CeramicCoatingSpotlight />
+      <VisualProof />
+    </>
   );
 }

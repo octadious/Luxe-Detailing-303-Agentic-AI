@@ -1,1 +1,78 @@
 @import "tailwindcss";
+
+/*
+ * Luxe Detailing 303 — design tokens.
+ *
+ * Placeholder values, clearly scoped to this block, so the whole visual
+ * system can be retargeted from one place once the real logo and exact
+ * brand colors are supplied. Components consume these via Tailwind
+ * utilities (bg-accent, text-h2, rounded-md, ...) rather than hardcoded
+ * values.
+ */
+@theme {
+  /* Colors — PLACEHOLDER, pending confirmed brand assets. */
+  --color-background: #0a0a0b;
+  --color-surface: #141416;
+  --color-surface-raised: #1c1c1f;
+  --color-border: #2a2a2e;
+  --color-foreground: #f5f5f2;
+  --color-muted: #9a9a9f;
+  --color-accent: #e8b923;
+  --color-accent-foreground: #0a0a0b;
+  --color-success: #3fa76b;
+  --color-error: #e5484d;
+
+  /* Typography — system font stack only (no remote fonts fetched at
+     build time). Semantic scale for headings/body/small text. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --text-display: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: clamp(2.25rem, 1.75rem + 2vw, 3.25rem);
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+  --text-h2--line-height: 1.15;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  /* Radii — small and confident rather than heavily rounded. */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+
+  /* Shadows — minimal, reserved for real elevation, not decoration. */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  /* Motion — paired with Tailwind's built-in duration-* utilities:
+     duration-150 for hover/focus feedback, duration-300 for larger
+     transitions (e.g. the mobile nav panel). See prefers-reduced-motion
+     handling below. */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
