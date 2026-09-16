@@ -8,17 +8,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background">
       <Container className="flex h-[4.5rem] items-center justify-between gap-4">
-        <Link href="/" className="text-h3 font-semibold tracking-tight text-foreground">
+        <Link
+          href="/"
+          className="inline-flex min-h-11 items-center text-h3 font-semibold tracking-tight text-foreground"
+        >
           {siteConfig.name}
         </Link>
 
-        <nav aria-label="Primary" className="hidden md:block">
+        <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {primaryNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-small font-medium text-muted transition-colors duration-150 ease-standard hover:text-foreground"
+                  className="inline-flex min-h-11 items-center text-small font-medium text-muted transition-colors duration-150 ease-standard hover:text-foreground"
                 >
                   {item.label}
                 </Link>
@@ -27,7 +30,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button href={cta.primary.href} variant="primary">
             {cta.primary.label}
           </Button>

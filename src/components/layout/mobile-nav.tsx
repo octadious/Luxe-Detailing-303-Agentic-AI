@@ -32,7 +32,7 @@ export function MobileNav() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         ref={triggerRef}
         type="button"
@@ -59,14 +59,14 @@ export function MobileNav() {
           className="fixed inset-x-0 top-[4.5rem] bottom-0 z-40 flex flex-col gap-8 overflow-y-auto bg-background px-6 py-10"
         >
           <nav aria-label="Primary">
-            <ul className="flex flex-col gap-6">
+            <ul className="flex flex-col gap-2">
               {primaryNav.map((item, index) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     ref={index === 0 ? firstLinkRef : undefined}
                     onClick={() => setOpen(false)}
-                    className="text-h3 font-semibold text-foreground transition-colors duration-150 ease-standard hover:text-accent"
+                    className="flex min-h-11 items-center text-h3 font-semibold text-foreground transition-colors duration-150 ease-standard hover:text-accent"
                   >
                     {item.label}
                   </Link>

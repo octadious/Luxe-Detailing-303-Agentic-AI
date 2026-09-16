@@ -14,12 +14,12 @@ export function Footer() {
         </div>
 
         <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-8 gap-y-2">
+          <ul className="flex flex-wrap gap-x-8 gap-y-1">
             {primaryNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-small text-muted transition-colors duration-150 ease-standard hover:text-foreground"
+                  className="flex min-h-11 items-center text-small text-muted transition-colors duration-150 ease-standard hover:text-foreground"
                 >
                   {item.label}
                 </Link>
