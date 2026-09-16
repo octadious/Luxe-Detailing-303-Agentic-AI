@@ -12,6 +12,37 @@ time.
 
 ---
 
+## Decisions locked for v1
+
+The owner has now confirmed the items below, superseding the corresponding
+"Assumption" labels elsewhere in this document. Sections are left in place
+with their full reasoning for context, but these specific points are no
+longer open.
+
+| Decision | Direction |
+| --- | --- |
+| Primary goal | Generate qualified leads + estimates |
+| Primary CTA | "Get an Instant Estimate" |
+| Secondary CTA | "Book a Detail" |
+| Audience priority | Luxury owners + car enthusiasts first; convenience is a secondary benefit, not a distinct primary segment |
+| v1 pages | Home, Services, Ceramic Coating, Estimate/Contact |
+| Gallery | Homepage section for v1; dedicated `/gallery` page later |
+| AI | Planned as a core future product feature (§15); not built in this phase |
+| Visuals | Real Luxe vehicle/detailing footage whenever available, supplemented by Higgsfield for cinematic supporting assets |
+| Platform direction | Build Luxe first; keep architecture ready for a future multi-business platform (§15) — no multi-tenant build now |
+| Current Wix site | Stays live and in production until the new site is proven ready to replace it |
+
+Note on the secondary CTA: "Book a Detail" is decided as CTA *copy* only.
+Until a real booking system exists, it routes to the same Estimate/Contact
+flow as the primary CTA — see the §15 scope boundary, which still excludes
+building booking functionality.
+
+Everything not listed above (exact colors, typography, ceramic coating
+tiers, exact service-area boundaries, FAQ content, certifications, etc.)
+remains open — see §14.
+
+---
+
 ## 1. Brand
 
 **Known:**
@@ -36,14 +67,16 @@ purposes.
 
 ## 2. Primary business goals
 
-Proposed priority order. **All of this section is assumption** pending
-owner confirmation — no goals or priorities have been stated by the
-business yet.
+Priority order below. The top item and both CTAs are **Decided** (see
+"Decisions locked for v1" above); the rest of the ordering/rationale is
+still a working assumption.
 
-1. **(Assumption)** Generate qualified detailing leads — the site's top
-   job is turning visitors into contactable prospects.
-2. **(Assumption)** Get visitors to request an estimate — likely the
-   primary conversion action, ahead of a fully transactional booking flow.
+1. **(Decided)** Generate qualified leads + estimates — the site's top
+   job is turning visitors into contactable, quote-ready prospects.
+2. **(Decided)** Primary CTA is **"Get an Instant Estimate."** Secondary
+   CTA is **"Book a Detail."** Both currently route to the same
+   Estimate/Contact flow (§4) — "Book a Detail" is decided as CTA copy
+   now, not a signal to build real scheduling/booking yet (§15).
 3. **(Assumption)** Showcase premium detailing quality — visual proof
    (vehicles, work) builds the trust a premium price point requires.
 4. **(Assumption)** Explain ceramic coating specifically — likely the
@@ -55,38 +88,37 @@ business yet.
    "mobile detailing Denver" / "ceramic coating Denver" style intent.
 7. **(Assumption)** Provide an excellent mobile (device) experience —
    most local-service searches happen on phones.
-8. **(Assumption, lower priority for v1)** Drive direct online bookings
-   (as opposed to estimate requests) — may come later once lead flow and
-   service definitions are proven out.
 
-**Needs owner confirmation:** whether "request an estimate" or "book now"
-is the actual desired primary CTA, and whether online booking is a v1
-requirement or a v2 feature.
+**Resolved:** primary goal and CTA labels (see above). **Still needs
+confirmation:** relative priority of goals 3–7, and the timing for a real
+booking/scheduling system behind "Book a Detail" (§14).
 
 ---
 
 ## 3. Target audiences
 
-**Known:** none of the audiences below have been confirmed by the owner —
-this is a working hypothesis set, listed roughly by likely priority.
+**Decided:** messaging leads with luxury vehicle owners and car
+enthusiasts; convenience is a secondary benefit woven into that messaging,
+not a distinct primary segment or section (see "Decisions locked for v1").
 
-- **(Assumption) Luxury vehicle owners** — owners of high-end cars who
-  expect a service quality and presentation matching the vehicle.
-- **(Assumption) Car enthusiasts** — people who care about paint
+- **(Decided, primary) Luxury vehicle owners** — owners of high-end cars
+  who expect a service quality and presentation matching the vehicle.
+- **(Decided, primary) Car enthusiasts** — people who care about paint
   condition, correction, and coatings as a hobby/identity, not just upkeep.
-- **(Assumption) Ceramic-coating-curious customers** — people actively
-  comparing coating vs. wax/sealant, likely need education, not just a
-  sales page.
-- **(Assumption) Busy professionals** — value convenience and time
-  savings; the mobile model is the primary appeal for this group.
-- **(Assumption) Convenience-first customers generally** — anyone who
-  wants quality detailing without driving to a shop, regardless of vehicle
-  class.
+- **(Assumption, secondary) Ceramic-coating-curious customers** — people
+  actively comparing coating vs. wax/sealant, likely need education, not
+  just a sales page. Overlaps heavily with the two primary segments above.
+- **(Decided, secondary framing only) Convenience** — the mobile
+  service model is a benefit called out for the primary audiences above
+  (e.g., busy professionals among luxury/enthusiast owners), not a
+  standalone "busy professionals" segment with its own messaging track.
 
-**Needs owner confirmation:** relative size/value of each segment, and
-whether the business wants to actively target all of them in v1 or focus
-messaging on one or two (e.g., lead with luxury/enthusiast, treat
-"busy professional" as a secondary framing rather than a distinct section).
+**Still open:** exact relative emphasis between "luxury owner" and "car
+enthusiast" framing within the decided priority (they can pull messaging
+in slightly different directions — e.g., concierge/prestige vs.
+craft/correction quality), and whether ceramic-coating-curious visitors
+need dedicated messaging or are adequately served by §4's dedicated
+Ceramic Coating page.
 
 ---
 
@@ -104,14 +136,18 @@ Proposed structure, scalable but not all required for v1.
 /contact                Contact / request an estimate (primary conversion page)
 ```
 
-**v1 candidate (assumption, needs confirmation):** Home, Services,
-Ceramic Coatings, Contact/Estimate. These cover the core "what do you do →
-prove it's good → let me reach you" journey.
+**v1 (Decided):** Home, Services, Ceramic Coatings, Contact/Estimate.
+These cover the core "what do you do → prove it's good → let me reach
+you" journey.
 
-**Likely v2+ (assumption):** Gallery, About, FAQ as standalone pages —
-useful for trust and SEO, but not required to launch a functioning
-lead-gen site. FAQ content could start as a section on Contact or Services
-instead of its own page until there's enough content to justify it.
+**Gallery (Decided):** ships as a homepage section for v1 (§5), not a
+standalone page. A dedicated `/gallery` page is planned for later, once
+there's enough real material (§13) to justify its own page and URL.
+
+**Likely v2+ (assumption):** About and FAQ as standalone pages — useful
+for trust and SEO, but not required to launch a functioning lead-gen
+site. FAQ content could start as a section on Contact or Services instead
+of its own page until there's enough content to justify it.
 
 **Not decided:** whether Booking becomes a distinct page/flow (separate
 from "request an estimate") once a booking system exists — see §10/§11.
@@ -127,7 +163,8 @@ Proposed sequence, optimized for conversion, trust, clarity, accessibility,
 and SEO. This is a **sequence of purposes**, not a layout or visual design.
 
 1. **Hero** — immediate brand identity (name, location, positioning) and
-   the single primary CTA (assumption: "Request an Estimate"). Must convey
+   the primary CTA, **"Get an Instant Estimate"** (Decided, §2), with
+   "Book a Detail" available as the secondary action. Must convey
    "premium mobile detailing in Denver" within seconds, including to
    screen reader and low-bandwidth users (real `<h1>`, not an image of
    text).
@@ -139,9 +176,10 @@ and SEO. This is a **sequence of purposes**, not a layout or visual design.
    priority in §2).
 4. **Ceramic coating spotlight** — dedicated section elevating the
    highest-value service, linking to its own page for detail.
-5. **Proof / visual storytelling** — real vehicle photography/video
-   (gallery preview), not stock imagery, once assets exist (see §13). This
-   is where "premium" gets demonstrated rather than claimed.
+5. **Proof / visual storytelling** — the decided v1 home for Gallery
+   content (§4): real vehicle photography/video, not stock imagery,
+   sourced per the decided visuals approach in §6/§13. This is where
+   "premium" gets demonstrated rather than claimed.
 6. **Trust / process** — how the service works end to end (booking →
    service → result), professionalism signals. No invented certifications
    or claims — only what the business actually confirms.
@@ -149,12 +187,14 @@ and SEO. This is a **sequence of purposes**, not a layout or visual design.
    SEO and sets expectations.
 8. **FAQ preview (optional, assumption)** — 3–4 common questions,
    link to full FAQ if that page exists.
-9. **Final CTA / contact** — low-friction path to request an estimate,
-   repeated because most visitors won't convert on the first CTA.
+9. **Final CTA / contact** — low-friction repeat of "Get an Instant
+   Estimate" (and "Book a Detail"), included because most visitors won't
+   convert on the first CTA.
 
-**Needs owner confirmation:** whether gallery/proof content exists at
-launch — if not, section 5 should be deferred or replaced rather than
-shipped empty.
+**Needs owner confirmation:** how much real gallery/proof content exists
+at literal launch vs. how much leans on Higgsfield-generated visuals in
+the interim (§6/§13/§14) — the section's *placement* is decided, its
+initial *content mix* is not.
 
 ---
 
@@ -169,9 +209,12 @@ Target aesthetic: **premium automotive**, not generic SaaS/AI-startup.
   highlights, and brand moments — not as a dominant fill color. Exact hue
   to be finalized against the real logo/brand asset once available (see
   §13); treat any hex value used before then as a placeholder.
-- **Imagery:** high-quality vehicle photography/video is the primary
-  visual language, not illustration or iconography. The site should feel
-  like it's showing real work, not decorating around an absence of it.
+- **Imagery (Decided sourcing, §13):** high-quality vehicle
+  photography/video is the primary visual language, not illustration or
+  iconography — real Luxe vehicle/detailing footage whenever available,
+  supplemented by Higgsfield-generated cinematic visuals where real
+  footage doesn't yet exist. The site should feel like it's showing real
+  work, not decorating around an absence of it.
 - **Depth & motion:** subtle only — soft shadows, restrained layering.
   Depth should read as "premium product photography," not "UI panels
   floating in 3D space."
@@ -293,8 +336,11 @@ per scope.
 
 ## 10. Future AI architecture (conceptual only)
 
-No implementation, no packages, no integrations — this is a map of where
-AI could plug in later, so the IA/content decisions above don't
+**Decided:** AI assistance is planned as a core future product feature —
+not a nice-to-have bolt-on — and feeds directly into the broader platform
+direction in §15. It is still **not built in this phase**: no
+implementation, no packages, no integrations. This section remains a map
+of where AI could plug in later, so the IA/content decisions above don't
 accidentally foreclose it.
 
 - **AI Detail Advisor:** a conversational helper that asks about a
@@ -402,10 +448,16 @@ What the site will eventually need, and what kind of asset each is —
   process highlights) — supports the "visual storytelling" goal in §5
   without relying on autoplay motion that hurts performance/accessibility
   (§7, §9).
-- **Generated visuals:** where real photography/video isn't yet available,
-  **Higgsfield** may be used later to produce original cinematic-style
-  supporting visuals — explicitly deferred; nothing is being generated as
-  part of this document.
+- **Generated visuals (Decided workflow, not yet executed):** where real
+  photography/video isn't yet available, **Higgsfield** produces original
+  cinematic-style supporting visuals, directed by the art direction in
+  §6 — not generated ad hoc or "make it look cool." The intended division
+  of labor: Claude builds the actual website/UI; Higgsfield generates
+  specific cinematic assets against that art direction; the owner
+  supplies real Luxe vehicle/detailing footage whenever available; the
+  owner then reviews the result and directs what gets built/generated
+  next. Nothing is being generated as part of this document — this is
+  the agreed process for when asset generation starts.
 - **Logo:** the current black+yellow brand direction is known, but no
   finalized logo file is confirmed as part of this task — needed before
   final visual design locks in the accent color and typography pairing.
@@ -420,33 +472,140 @@ What the site will eventually need, and what kind of asset each is —
 
 ## 14. Open questions for owner confirmation
 
-Decisions that should be confirmed before final visual implementation
-begins:
+Items previously listed here that are now settled (primary goal/CTA
+labels, audience priority, v1 page set, gallery placement, AI's product
+status, visuals sourcing approach, platform direction, Wix cutover
+approach) have moved to "Decisions locked for v1" at the top of this
+document and are not repeated below. What remains open, to confirm before
+final visual implementation begins:
 
-1. What is the actual primary conversion goal — "request an estimate,"
-   direct booking, or a phone call? (§2)
-2. Is online booking a v1 requirement, or a later phase? (§2, §4)
-3. Which audience should messaging lead with — luxury/enthusiast owners,
-   or convenience-focused professionals — or should the site speak to
-   both equally? (§3)
-4. Which pages ship in v1 vs. later — is the Home + Services + Ceramic
-   Coating + Contact set sufficient, or is Gallery/About/FAQ required at
-   launch? (§4)
-5. Does the business have (or can it produce) real photography/video for
-   launch, or should the site lean on AI-generated visuals (via
-   Higgsfield) for the initial launch and swap in real assets later? (§13)
-6. Is there a finalized logo file, and exact brand color values, or should
+1. Is a real booking/scheduling system needed soon after launch, or does
+   "Book a Detail" route to the Estimate/Contact flow indefinitely for
+   v1? (§2, §15)
+2. Is there a finalized logo file, and exact brand color values, or should
    visual design proceed from the black+yellow direction and propose
    exact values for approval? (§6, §12, §13)
-7. Does ceramic coating have distinct tiers/packages, or is it a single
+3. Does ceramic coating have distinct tiers/packages, or is it a single
    offering for messaging purposes? (Affects §4/§5 structure and the
    future estimate flow in §10, without implying pricing is displayed.)
-8. What is the actual service area beyond "Denver" — specific
+4. What is the actual service area beyond "Denver" — specific
    neighborhoods/suburbs/radius — for local SEO content? (§9)
-9. Should FAQ content exist at launch, and if so, does the business have
-   real, common questions to source it from (rather than invented ones)?
-   (§4, §5)
-10. Any existing certifications, product-brand affiliations (e.g., a
-    specific ceramic coating product line), or credentials the business
-    wants represented — none are assumed or included anywhere in this
-    document, but if they exist they should inform IA/content later. (§1)
+5. How much real gallery/proof content (photo/video) exists at literal
+   launch vs. how much should lean on Higgsfield-generated visuals in the
+   interim, and when does a dedicated `/gallery` page become worth
+   building? (§4, §5, §13)
+6. When do About and FAQ become standalone pages, and if FAQ ships early,
+   does the business have real, common questions to source it from
+   (rather than invented ones)? (§4, §5)
+7. Any existing certifications, product-brand affiliations (e.g., a
+   specific ceramic coating product line), or credentials the business
+   wants represented — none are assumed or included anywhere in this
+   document, but if they exist they should inform IA/content later. (§1)
+8. What does "proven ready to replace the Wix site" mean in practice —
+   e.g., feature/content parity, stakeholder sign-off, an SEO migration
+   plan for the domain switch — so there's a clear cutover trigger rather
+   than an indefinite dual-run? (Decisions locked)
+9. Which future business model(s) from §15 are actually being pursued
+   (subscription, lead-gen service, hybrid, etc.)? Explicitly not decided
+   now — listed here as a marker that it will need revisiting, not as a
+   near-term blocker.
+
+---
+
+## 15. Future Product Direction — Detailing Business Platform
+
+Luxe Detailing 303 is the first implementation of a longer-term product
+vision (Decided platform direction — see "Decisions locked for v1"). The
+eventual product may become a reusable software platform for automotive
+detailing businesses. Nothing in this section is being built now — it
+exists so today's architecture choices don't quietly foreclose it.
+
+**Potential future capabilities** (conceptual only, none implemented):
+
+- AI-powered customer assistance
+- Vehicle/service intake
+- Photo-assisted estimate requests
+- Lead qualification
+- Lead CRM
+- Customer and vehicle records
+- Appointment booking
+- Automated follow-up
+- Service management
+- Analytics
+- Business dashboard
+- Multi-location support
+- Business-specific website configuration
+- Customizable branding
+
+### Architectural principle
+
+The current application should remain a Luxe Detailing 303 website, not a
+generic SaaS application. However, reusable UI and business logic should
+be structured so a future multi-business architecture is possible without
+rewriting the entire frontend.
+
+**Avoid:**
+
+- Hardcoding Luxe-specific content into reusable components
+- Making assumptions that there will always be only one business
+- Coupling visual components directly to future database structures
+- Prematurely implementing multi-tenancy
+
+**Prefer:**
+
+- Reusable components
+- Data-driven rendering where appropriate
+- Centralized business configuration
+- Clean separation between presentation and business data
+- Clear boundaries for future API/database integrations
+
+### Future business model possibilities
+
+Documented, without implementing, as possibilities the eventual platform
+could support:
+
+1. SaaS subscription for detailing businesses.
+2. Website + AI lead-generation service.
+3. Qualified lead generation / lead-routing model.
+4. Hybrid subscription + lead-generation model.
+
+No business-model decision is being made now (see §14, open question 9).
+
+### Future tenant concept
+
+Conceptually, a future business could have its own:
+
+```
+Business
+ ├── Branding
+ ├── Services
+ ├── Pricing
+ ├── Service Areas
+ ├── Gallery
+ ├── Leads
+ ├── Customers
+ ├── Vehicles
+ ├── Estimates
+ ├── Appointments
+ └── AI Settings
+```
+
+This is a future architecture concept only — not a database schema, and
+not something being built now.
+
+### Current scope boundary
+
+The current project remains: **Luxe Detailing 303 marketing website +
+future conversion/AI foundation.**
+
+Do not implement, until explicitly instructed:
+
+- Supabase
+- Authentication
+- Payments
+- Booking
+- CRM
+- AI
+- Multi-tenancy
+- Lead routing
+- Analytics
